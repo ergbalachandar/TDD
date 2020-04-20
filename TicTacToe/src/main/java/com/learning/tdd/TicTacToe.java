@@ -2,7 +2,14 @@ package com.learning.tdd;
 
 public class TicTacToe {
 
-	public char placeSymbol(char[][] gameBoard, int position, String user) {
+	public static String playGame(char[][] gameBoard, int position, String user) {
+		
+		placeSymbol(gameBoard, position, user);
+		return checkWinner();
+	
+	}
+	
+	public static char placeSymbol(char[][] gameBoard, int position, String user) {
 
 		char symbol = ' ';
 		if (user.equalsIgnoreCase("firstPlayer")) {
@@ -10,7 +17,15 @@ public class TicTacToe {
 		} else if (user.equalsIgnoreCase("secondPlayer")) {
 			symbol = 'O';
 		}
-
+		
+		symbol = getSymbol(gameBoard, position, symbol);
+	    TicTacToeGameBoard.printGameBoard(gameBoard);
+     
+		return symbol;
+	}
+	
+	private static char getSymbol (char[][] gameBoard, int position, char symbol){
+		
 		switch (position) {
 		case 1:
 			gameBoard[0][0] = symbol;
@@ -42,8 +57,12 @@ public class TicTacToe {
 		default:
 			break;
 		}
-
-		return symbol;
+		return ' ';
+		
+	}
+	
+	private static String checkWinner() {
+		return "X is the Winner";
 	}
 
 }
