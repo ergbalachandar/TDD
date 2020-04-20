@@ -1,5 +1,6 @@
 package com.learning.tdd;
 
+import java.awt.SecondaryLoop;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 public class TicTacToe {
 	
 	ArrayList<Integer> firstPlayerPosition = new ArrayList<Integer>();
+	ArrayList<Integer> secondPlayerPosition = new ArrayList<Integer>();
 
 	public String playGame(char[][] gameBoard, int position, String user) {
 		
@@ -26,6 +28,7 @@ public class TicTacToe {
 			firstPlayerPosition.add(position);
 		} else if (user.equalsIgnoreCase("secondPlayer")) {
 			symbol = 'O';
+			secondPlayerPosition.add(position);
 		}
 		
 		symbol = getSymbol(gameBoard, position, symbol);
@@ -91,6 +94,9 @@ public class TicTacToe {
 		for(List winningPatten : winningPatterns) {
 			if(firstPlayerPosition.containsAll(winningPatten)) {
 				return "PlayerOne is the Winner";
+			}
+			else if (secondPlayerPosition.containsAll(winningPatten)) {
+				return "PlayerTwo is the Winner";
 			}
 		}
 		
