@@ -297,5 +297,23 @@ public class TicTacToeTest {
 	    Assertions.assertEquals("PlayerOne is the Winner", ticTacToe.playGame(gameBoard,playerOneThirdPositon , firstPlayer));
 		
 	}
+	
+	@Test
+	@Order(17)
+	public void givenWhenFirstDiagonalIsOccupiedWithOThenDeclarePlayerTwoAsWinner() {
+		int playerOneFirstPostion = 2;
+		int playerTwoFirstPosition = 1;
+		int playerOneSecondPosition = 4;
+		int playerTwoSecondPositon = 5;
+	    int playerOneThirdPositon = 8;
+	    int playerTwoThirdPosition = 9;
+	    ticTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneThirdPositon, firstPlayer);
+	    
+	    Assertions.assertEquals("PlayerTwo is the Winner", ticTacToe.playGame(gameBoard, playerTwoThirdPosition, secondPlayer));
+	}
 
 }
