@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 public class TicTacToeTest {
 	
 	private TicTacToe ticTacToe;
+	private String firstPlayer = "firstPlayer";
+	private String secondPlayer = "secondPlayer";
 	
 	@BeforeEach
 	public void setUp() throws Exception 
@@ -18,14 +20,16 @@ public class TicTacToeTest {
 	
 	@Test
 	public void firstPlayerShouldAssignSymbolX() {
-		int position = 1;
-	    Assertions.assertEquals("X", ticTacToe.placeSymbol(position,"firstPlayer"));
+		int firstPlayerposition = 1;
+	    Assertions.assertEquals("X", ticTacToe.placeSymbol(firstPlayerposition, firstPlayer));
 	}
 	
 	@Test
 	public void secondPlayerShouldAssignSymbolO() {
-		int secondPosition = 2;
-         Assertions.assertEquals("O",ticTacToe.placeSymbol(secondPosition, "SecondPlayer"));
+		int firstPlayerPosition = 1;
+		int secondPlayerPosition = 2;
+		Assertions.assertEquals("X",ticTacToe.placeSymbol(firstPlayerPosition, firstPlayer));
+        Assertions.assertEquals("O",ticTacToe.placeSymbol(secondPlayerPosition, secondPlayer));
 	}
 
 }
