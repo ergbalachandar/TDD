@@ -46,7 +46,7 @@ public class TicTacToeTest {
 	    TicTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
 	   
 	  
-	    Assertions.assertEquals("X is the Winner", TicTacToe.playGame(gameBoard,playerOneThirdPositon , firstPlayer));
+	    Assertions.assertEquals("PlayerOne is the Winner", TicTacToe.playGame(gameBoard,playerOneThirdPositon , firstPlayer));
 		
 	}
 

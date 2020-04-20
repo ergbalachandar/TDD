@@ -75,7 +75,7 @@ public class TicTacToe {
 		
 		List topRow = Arrays.asList(1,2,3);
 		if (firstPlayerPosition.containsAll(topRow)) {
-			return "X is the Winner";
+			return "PlayerOne is the Winner";
 			
 		}
 		return "";
