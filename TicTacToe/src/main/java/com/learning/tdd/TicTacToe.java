@@ -6,9 +6,9 @@ import java.util.List;
 
 public class TicTacToe {
 	
-	static ArrayList<Integer> firstPlayerPosition = new ArrayList<Integer>();
+	ArrayList<Integer> firstPlayerPosition = new ArrayList<Integer>();
 
-	public static String playGame(char[][] gameBoard, int position, String user) {
+	public String playGame(char[][] gameBoard, int position, String user) {
 		
 		placeSymbol(gameBoard, position, user);
 		String gameResult = checkWinner();
@@ -18,7 +18,7 @@ public class TicTacToe {
 	
 	}
 	
-	public static char placeSymbol(char[][] gameBoard, int position, String user) {
+	public char placeSymbol(char[][] gameBoard, int position, String user) {
 
 		char symbol = ' ';
 		if (user.equalsIgnoreCase("firstPlayer")) {
@@ -71,14 +71,18 @@ public class TicTacToe {
 		
 	}
 	
-	private static String checkWinner() {
+	private String checkWinner() {
 		
 		List topRow = Arrays.asList(1,2,3);
+		List midRow = Arrays.asList(4,5,6);
 		if (firstPlayerPosition.containsAll(topRow)) {
 			return "PlayerOne is the Winner";
-			
+		}else if(firstPlayerPosition.containsAll(midRow)) {
+			return "PlayerOne is the Winner";
 		}
-		return "";
+		
+		return " ";
+		
 	}
 
 }

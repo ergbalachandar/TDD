@@ -11,26 +11,28 @@ public class TicTacToeTest {
 	private String firstPlayer = "firstPlayer";
 	private String secondPlayer = "secondPlayer";
 	char[][] gameBoard;
+	private TicTacToe ticTacToe;
 	
 	@BeforeEach
 	public void setUp() throws Exception 
 	{
 	    gameBoard = TicTacToeGameBoard.gameBoard();
+	    ticTacToe = new TicTacToe();
 	} 
 	
 	
 	@Test
 	public void firstPlayerShouldAssignSymbolX() {
 		int firstPlayerposition = 1;
-	    Assertions.assertEquals('X', TicTacToe.placeSymbol(gameBoard,firstPlayerposition, firstPlayer));
+	    Assertions.assertEquals('X', ticTacToe.placeSymbol(gameBoard,firstPlayerposition, firstPlayer));
 	}
 	
 	@Test
 	public void secondPlayerShouldAssignSymbolO() {
 		int firstPlayerPosition = 1;
 		int secondPlayerPosition = 2;
-		Assertions.assertEquals('X',TicTacToe.placeSymbol(gameBoard,firstPlayerPosition, firstPlayer));
-        Assertions.assertEquals('O',TicTacToe.placeSymbol(gameBoard,secondPlayerPosition, secondPlayer));
+		Assertions.assertEquals('X',ticTacToe.placeSymbol(gameBoard,firstPlayerPosition, firstPlayer));
+        Assertions.assertEquals('O',ticTacToe.placeSymbol(gameBoard,secondPlayerPosition, secondPlayer));
 	}
 	
 	@Test
@@ -40,13 +42,29 @@ public class TicTacToeTest {
 		int playerOneSecondPosition = 2;
 		int playerTwoSecondPositon = 9;
 	    int playerOneThirdPositon = 3;
-	    TicTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
-	    TicTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
-	    TicTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
-	    TicTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
 	   
 	  
-	    Assertions.assertEquals("PlayerOne is the Winner", TicTacToe.playGame(gameBoard,playerOneThirdPositon , firstPlayer));
+	    Assertions.assertEquals("PlayerOne is the Winner", ticTacToe.playGame(gameBoard,playerOneThirdPositon , firstPlayer));
+		
+	}
+	
+	@Test
+	public void givenWhenMidRowIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
+		int playerOneFirstPostion = 4;
+		int playerTwoFirstPosition = 2;
+		int playerOneSecondPosition = 5;
+		int playerTwoSecondPositon = 1;
+	    int playerOneThirdPositon = 6;
+	    ticTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
+	    
+	    Assertions.assertEquals("PlayerOne is the Winner", ticTacToe.playGame(gameBoard, playerOneThirdPositon, firstPlayer));
 		
 	}
 
