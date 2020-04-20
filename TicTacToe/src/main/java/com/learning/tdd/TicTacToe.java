@@ -1,11 +1,20 @@
 package com.learning.tdd;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class TicTacToe {
+	
+	static ArrayList<Integer> firstPlayerPosition = new ArrayList<Integer>();
 
 	public static String playGame(char[][] gameBoard, int position, String user) {
 		
 		placeSymbol(gameBoard, position, user);
-		return checkWinner();
+		String gameResult = checkWinner();
+		System.out.println(gameResult);
+		return gameResult;
+		
 	
 	}
 	
@@ -14,6 +23,7 @@ public class TicTacToe {
 		char symbol = ' ';
 		if (user.equalsIgnoreCase("firstPlayer")) {
 			symbol = 'X';
+			firstPlayerPosition.add(position);
 		} else if (user.equalsIgnoreCase("secondPlayer")) {
 			symbol = 'O';
 		}
@@ -62,7 +72,13 @@ public class TicTacToe {
 	}
 	
 	private static String checkWinner() {
-		return "X is the Winner";
+		
+		List topRow = Arrays.asList(1,2,3);
+		if (firstPlayerPosition.containsAll(topRow)) {
+			return "X is the Winner";
+			
+		}
+		return "";
 	}
 
 }

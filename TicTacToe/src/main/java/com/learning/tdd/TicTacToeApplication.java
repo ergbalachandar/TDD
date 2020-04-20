@@ -13,7 +13,7 @@ public class TicTacToeApplication implements CommandLineRunner {
 	
     @Override
     public void run(String...args) throws Exception {
-    
+      TicTacToeGameBoard.gameBoard();
      }
 }
 
