@@ -242,5 +242,24 @@ public class TicTacToeTest {
 	    Assertions.assertEquals("PlayerTwo is the Winner", ticTacToe.playGame(gameBoard, playerTwoThirdPosition, secondPlayer));
 		
 	}
+	
+	@Test
+	@Order(14)
+	public void givenWhenThirdColumnIsOccupiedWithOThenDeclarePlayerTwoAsWinner() {
+		int playerOneFirstPostion = 1;
+		int playerTwoFirstPosition = 3;
+		int playerOneSecondPosition = 4;
+		int playerTwoSecondPositon = 6;
+	    int playerOneThirdPositon = 8;
+	    int playerTwoThirdPosition = 9;
+	    ticTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneThirdPositon, firstPlayer);
+	    
+	    Assertions.assertEquals("PlayerTwo is the Winner", ticTacToe.playGame(gameBoard, playerTwoThirdPosition, secondPlayer));
+		
+	}
 
 }
