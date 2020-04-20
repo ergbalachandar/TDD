@@ -1,10 +1,13 @@
 package com.learning.tdd;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TicTacToeTest {
 	
 
@@ -22,12 +25,14 @@ public class TicTacToeTest {
 	
 	
 	@Test
+	@Order(1)
 	public void firstPlayerShouldAssignSymbolX() {
 		int firstPlayerposition = 1;
 	    Assertions.assertEquals('X', ticTacToe.placeSymbol(gameBoard,firstPlayerposition, firstPlayer));
 	}
 	
 	@Test
+	@Order(2)
 	public void secondPlayerShouldAssignSymbolO() {
 		int firstPlayerPosition = 1;
 		int secondPlayerPosition = 2;
@@ -36,6 +41,7 @@ public class TicTacToeTest {
 	}
 	
 	@Test
+	@Order(3)
 	public void givenWhenTopRowIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
 		int playerOneFirstPostion = 1;
 		int playerTwoFirstPosition = 4;
@@ -53,6 +59,7 @@ public class TicTacToeTest {
 	}
 	
 	@Test
+	@Order(4)
 	public void givenWhenMidRowIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
 		int playerOneFirstPostion = 4;
 		int playerTwoFirstPosition = 2;
@@ -69,6 +76,7 @@ public class TicTacToeTest {
 	}
 	
 	@Test
+	@Order(5)
 	public void givenWhenLastRowIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
 		int playerOneFirstPostion = 7;
 		int playerTwoFirstPosition = 2;
@@ -85,6 +93,7 @@ public class TicTacToeTest {
 	}
 	
 	@Test
+	@Order(6)
 	public void givenWhenFirstColumnIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
 		int playerOneFirstPostion = 1;
 		int playerTwoFirstPosition = 2;
@@ -101,12 +110,30 @@ public class TicTacToeTest {
 	}
 	
 	@Test
+	@Order(7)
 	public void givenWhenSecondColumnIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
 		int playerOneFirstPostion = 2;
 		int playerTwoFirstPosition = 1;
 		int playerOneSecondPosition = 5;
 		int playerTwoSecondPositon = 9;
 	    int playerOneThirdPositon = 8;
+	    ticTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
+	    ticTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
+	    ticTacToe.playGame(gameBoard, playerTwoSecondPositon, secondPlayer);
+	    
+	    Assertions.assertEquals("PlayerOne is the Winner", ticTacToe.playGame(gameBoard, playerOneThirdPositon, firstPlayer));
+		
+	}
+	
+	@Test
+	@Order(8)
+	public void givenWhenThirdColumnIsOccupiedWithXThenDeclarePlayerOneAsWinner() {
+		int playerOneFirstPostion = 3;
+		int playerTwoFirstPosition = 1;
+		int playerOneSecondPosition = 6;
+		int playerTwoSecondPositon = 5;
+	    int playerOneThirdPositon = 9;
 	    ticTacToe.playGame(gameBoard, playerOneFirstPostion, firstPlayer);
 	    ticTacToe.playGame(gameBoard, playerTwoFirstPosition, secondPlayer);
 	    ticTacToe.playGame(gameBoard, playerOneSecondPosition, firstPlayer);
