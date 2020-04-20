@@ -75,14 +75,18 @@ public class TicTacToe {
 		
 		List topRow = Arrays.asList(1,2,3);
 		List midRow = Arrays.asList(4,5,6);
-		if (firstPlayerPosition.containsAll(topRow)) {
-			return "PlayerOne is the Winner";
-		}else if(firstPlayerPosition.containsAll(midRow)) {
-			return "PlayerOne is the Winner";
+		
+		List<List> winningPatterns = new ArrayList<List>();
+		winningPatterns.add(topRow);
+		winningPatterns.add(midRow);
+		
+		for(List winningPatten : winningPatterns) {
+			if(firstPlayerPosition.containsAll(winningPatten)) {
+				return "PlayerOne is the Winner";
+			}
 		}
 		
 		return " ";
-		
 	}
 
 }
