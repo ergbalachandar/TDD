@@ -21,15 +21,17 @@ public class TicTacToeTest {
 	@Test
 	public void firstPlayerShouldAssignSymbolX() {
 		int firstPlayerposition = 1;
-	    Assertions.assertEquals("X", ticTacToe.placeSymbol(firstPlayerposition, firstPlayer));
+		char[][] gameBoard = TicTacToeGameBoard.gameBoard();
+	    Assertions.assertEquals('X', ticTacToe.placeSymbol(gameBoard,firstPlayerposition, firstPlayer));
 	}
 	
 	@Test
 	public void secondPlayerShouldAssignSymbolO() {
 		int firstPlayerPosition = 1;
 		int secondPlayerPosition = 2;
-		Assertions.assertEquals("X",ticTacToe.placeSymbol(firstPlayerPosition, firstPlayer));
-        Assertions.assertEquals("O",ticTacToe.placeSymbol(secondPlayerPosition, secondPlayer));
+		char[][] gameBoard = TicTacToeGameBoard.gameBoard();
+		Assertions.assertEquals('X',ticTacToe.placeSymbol(gameBoard,firstPlayerPosition, firstPlayer));
+        Assertions.assertEquals('O',ticTacToe.placeSymbol(gameBoard,secondPlayerPosition, secondPlayer));
 	}
 
 }
