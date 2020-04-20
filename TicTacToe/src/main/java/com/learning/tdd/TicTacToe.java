@@ -1,6 +1,5 @@
 package com.learning.tdd;
 
-import java.awt.SecondaryLoop;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -83,6 +82,7 @@ public class TicTacToe {
 		List secondColumn = Arrays.asList(2,5,8);
 		List thirdColumn = Arrays.asList(3,6,9);
 		List firstDiagonal = Arrays.asList(1,5,9);
+		List secondDiagonal = Arrays.asList(3,5,7);
 		
 		List<List> winningPatterns = new ArrayList<List>();
 		winningPatterns.add(topRow);
@@ -92,6 +92,7 @@ public class TicTacToe {
 		winningPatterns.add(secondColumn);
 		winningPatterns.add(thirdColumn);
 		winningPatterns.add(firstDiagonal);
+		winningPatterns.add(secondDiagonal);
 		
 		for(List winningPatten : winningPatterns) {
 			if(firstPlayerPosition.containsAll(winningPatten)) {
