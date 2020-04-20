@@ -76,11 +76,13 @@ public class TicTacToe {
 		List topRow = Arrays.asList(1,2,3);
 		List midRow = Arrays.asList(4,5,6);
 		List botRow = Arrays.asList(7,8,9);
+		List firtColumn = Arrays.asList(1,4,7);
 		
 		List<List> winningPatterns = new ArrayList<List>();
 		winningPatterns.add(topRow);
 		winningPatterns.add(midRow);
 		winningPatterns.add(botRow);
+		winningPatterns.add(firtColumn);
 		
 		for(List winningPatten : winningPatterns) {
 			if(firstPlayerPosition.containsAll(winningPatten)) {
